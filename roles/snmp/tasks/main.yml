@@ -1,0 +1,29 @@
+---
+- name: Make sure APT cache is updated
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+  tags: snmp
+
+- name: Instrall snmp
+  apt:
+    name:
+      - snmp
+      - snmpd
+    state: present
+  tags: snmp
+
+- name: Copy config file
+  template:
+    src: snmpd.conf.j2
+    dest: "{{ snmpd_config_path }}"
+    mode: '0644'
+    group: root
+    owner: root
+  tags: snmp
+
+- name: Restart snmpd service
+  service:
+    name: snmpd
+    state: restarted
+  tags: snmp
