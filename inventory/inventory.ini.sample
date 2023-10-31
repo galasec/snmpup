@@ -1,0 +1,13 @@
+[nodes]
+node1 ansible_host=192.168.100.1
+node2 ansible_host=192.168.100.2
+node3 ansible_host=192.168.100.3
+
+[nodes:vars]
+ansible_user=root
+ansible_ssh_private_key_file=/path/to/private/key
+#ansible_ssh_extra_args="-o IdentitiesOnly=yes" # (Optianl)
+
+[all:vars]
+prtg_ip_address=178.22.127.161
+prtg_identity=farma@v2ray
