@@ -4,6 +4,8 @@
 
 SNMP Up is a project that simplifies the configuration and management of the Simple Network Management Protocol Daemon (`snmpd`) using Ansible. This README provides an overview of the project, its features, and instructions on how to get started.
 
+In the first deployment we use it on PRTG service but in a new version it's developed on another services like `Influxdb` and `Grafana`.
+
 ## Table of Contents
 
 1. [Introduction](#snmp-up-with-ansible)
@@ -61,10 +63,15 @@ Before you begin, ensure you have the following:
 
 1. Edit the `snmpd` configuration inventory to customize SNMP settings and hosts. You can find the inventory file at `inventory/inventory.ini`.
 
+   ```bash
+   cp inventory/inventory.ini.sample inventory/inventory.ini
+   vim inventory/inventory.ini
+   ```
+
 2. Run the playbook to apply the configuration to your servers:
 
    ```bash
-   ansible-playbook -i inventory/inventory.ini ansible/mon.yml
+   ansible-playbook -i inventory/inventory.ini ansible/deploy.yml
    ```
 
 Thank you for using SNMP Up! We hope it simplifies your SNMP configuration and management tasks.
